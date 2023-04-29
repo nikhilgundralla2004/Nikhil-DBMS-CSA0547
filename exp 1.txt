@@ -1,0 +1,84 @@
+1.
+mysql> create table student(reg_no int(3), name varchar(15), Gender varchar(1), dob int(8), mobile_no int(10), city varchar(15));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| reg_no    | int(3)      | YES  |     | NULL    |       |
+| name      | varchar(15) | YES  |     | NULL    |       |
+| Gender    | varchar(1)  | YES  |     | NULL    |       |
+| dob       | int(8)      | YES  |     | NULL    |       |
+| mobile_no | int(10)     | YES  |     | NULL    |       |
+| city      | varchar(15) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+2.
+mysql> create table faculty(faculty_no int(4), faculty_name varchar(15), Gender varchar(1), DOB int(8), DOJ int(8), mobile_no int(10));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc faculty;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| faculty_no   | int(4)      | YES  |     | NULL    |       |
+| faculty_name | varchar(15) | YES  |     | NULL    |       |
+| Gender       | varchar(1)  | YES  |     | NULL    |       |
+| DOB          | int(8)      | YES  |     | NULL    |       |
+| DOJ          | int(8)      | YES  |     | NULL    |       |
+| mobile_no    | int(10)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+3.
+mysql> create table department(dept_no int(4), dept_name varchar(15), dept_head varchar(4));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc department;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| dept_no   | int(4)      | YES  |     | NULL    |       |
+| dept_name | varchar(15) | YES  |     | NULL    |       |
+| dept_head | varchar(4)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+4.
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| course_no   | int(4)      | YES  |     | NULL    |       |
+| course_name | varchar(15) | YES  |     | NULL    |       |
+| course      | varchar(1)  | YES  |     | NULL    |       |
+| sem_no      | int(8)      | YES  |     | NULL    |       |
+| hall_no     | int(8)      | YES  |     | NULL    |       |
+| fac_no      | int(10)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+
+
+2 ALTER TABLE faculty
+    -> ADD Deptno varchar(4);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| faculty_no   | int(4)      | YES  |     | NULL    |       |
+| faculty_name | varchar(15) | YES  |     | NULL    |       |
+| Gender       | varchar(1)  | YES  |     | NULL    |       |
+| DOB          | int(8)      | YES  |     | NULL    |       |
+| DOJ          | int(8)      | YES  |     | NULL    |       |
+| mobile_no    | int(10)     | YES  |     | NULL    |       |
+| Deptno       | varchar(4)  | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+
+
