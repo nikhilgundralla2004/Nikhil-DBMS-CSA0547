@@ -1,0 +1,161 @@
+1.
+mysql> insert into faculty values(143, "rajesh", "M", 22, 21, 78787878, "AI");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc faculty;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| faculty_no   | int(4)      | NO   | PRI | 0       |       |
+| faculty_name | varchar(15) | YES  |     | NULL    |       |
+| Gender       | varchar(1)  | YES  |     | NULL    |       |
+| DOB          | int(8)      | YES  |     | NULL    |       |
+| DOJ          | int(8)      | YES  |     | NULL    |       |
+| mobile_no    | int(10)     | YES  |     | NULL    |       |
+| Deptno       | varchar(4)  | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> select * from faculty;
++------------+--------------+--------+------+------+-----------+--------+
+| faculty_no | faculty_name | Gender | DOB  | DOJ  | mobile_no | Deptno |
++------------+--------------+--------+------+------+-----------+--------+
+|        142 | Anu          | F      |   12 |   10 |    153486 | AI     |
+|        143 | rajesh       | M      |   22 |   21 |  78787878 | AI     |
++------------+--------------+--------+------+------+-----------+--------+
+2 rows in set (0.00 sec)
+
+2.
+ysql> insert into student values(143, "rajesh", "M", 22, 78787878, "chennai");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++--------+--------+--------+------+-----------+---------+
+| reg_no | name   | Gender | dob  | mobile_no | city    |
++--------+--------+--------+------+-----------+---------+
+|    143 | rajesh | M      |   22 |  78787878 | chennai |
++--------+--------+--------+------+-----------+---------+
+1 row in set (0.00 sec)
+ysql> update student set reg_no=156 where name="rajesh";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++--------+--------+--------+------+-----------+---------+
+| reg_no | name   | Gender | dob  | mobile_no | city    |
++--------+--------+--------+------+-----------+---------+
+|    156 | rajesh | M      |   22 |  78787878 | chennai |
++--------+--------+--------+------+-----------+---------+
+1 row in set (0.00 sec)
+
+3.
+mysql> select * from faculty;
++------------+--------------+--------+------+------+-----------+--------+
+| faculty_no | faculty_name | Gender | DOB  | DOJ  | mobile_no | Deptno |
++------------+--------------+--------+------+------+-----------+--------+
+|        142 | Anu          | F      |   12 |   10 |    153486 | AI     |
+|        143 | rajesh       | M      |   22 |   21 |  78787878 | AI     |
++------------+--------------+--------+------+------+-----------+--------+
+2 rows in set (0.00 sec)
+
+delete from faculty where faculty_name="rajesh";
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from faculty;
++------------+--------------+--------+------+------+-----------+--------+
+| faculty_no | faculty_name | Gender | DOB  | DOJ  | mobile_no | Deptno |
++------------+--------------+--------+------+------+-----------+--------+
+|        142 | Anu          | F      |   12 |   10 |    153486 | AI     |
++------------+--------------+--------+------+------+-----------+--------+
+1 row in set (0.00 sec)
+
+4.
+mysql>  insert into faculty values(143, "RAM", "M", 22, 21, 78787878, "AI");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from faculty;
++------------+--------------+--------+------+------+-----------+--------+
+| faculty_no | faculty_name | Gender | DOB  | DOJ  | mobile_no | Deptno |
++------------+--------------+--------+------+------+-----------+--------+
+|        142 | Anu          | F      |   12 |   10 |    153486 | AI     |
+|        143 | RAM          | M      |   22 |   21 |  78787878 | AI     |
++------------+--------------+--------+------+------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> update faculty set DOB=19830501 where faculty_name="RAM";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from faculty;
++------------+--------------+--------+----------+------+-----------+--------+
+| faculty_no | faculty_name | Gender | DOB      | DOJ  | mobile_no | Deptno |
++------------+--------------+--------+----------+------+-----------+--------+
+|        142 | Anu          | F      |       12 |   10 |    153486 | AI     |
+|        143 | RAM          | M      | 19830501 |   21 |  78787878 | AI     |
++------------+--------------+--------+----------+------+-----------+--------+
+2 rows in set (0.00 sec)
+
+5.
+
+mysql> alter table faculty
+    -> add age int(3);
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| faculty_no   | int(4)      | NO   | PRI | 0       |       |
+| faculty_name | varchar(15) | YES  |     | NULL    |       |
+| Gender       | varchar(1)  | YES  |     | NULL    |       |
+| DOB          | int(8)      | YES  |     | NULL    |       |
+| DOJ          | int(8)      | YES  |     | NULL    |       |
+| mobile_no    | int(10)     | YES  |     | NULL    |       |
+| Deptno       | varchar(4)  | YES  |     | NULL    |       |
+| age          | int(3)      | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql>  insert into faculty values(193, "rahul", "M", 12, 31, 78787878, "AI", 70);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from faculty;
++------------+--------------+--------+----------+------+-----------+--------+------+
+| faculty_no | faculty_name | Gender | DOB      | DOJ  | mobile_no | Deptno | age  |
++------------+--------------+--------+----------+------+-----------+--------+------+
+|        142 | Anu          | F      |       12 |   10 |    153486 | AI     | NULL |
+|        143 | RAM          | M      | 19830501 |   21 |  78787878 | AI     | NULL |
+|        193 | rahul        | M      |       12 |   31 |  78787878 | AI     |   70 |
++------------+--------------+--------+----------+------+-----------+--------+------+
+3 rows in set (0.00 sec)
+
+mysql> delete from faculty where age>=65;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from faculty;
++------------+--------------+--------+----------+------+-----------+--------+------+
+| faculty_no | faculty_name | Gender | DOB      | DOJ  | mobile_no | Deptno | age  |
++------------+--------------+--------+----------+------+-----------+--------+------+
+|        142 | Anu          | F      |       12 |   10 |    153486 | AI     | NULL |
+|        143 | RAM          | M      | 19830501 |   21 |  78787878 | AI     | NULL |
++------------+--------------+--------+----------+------+-----------+--------+------+
+2 rows in set (0.00 sec)
+
+6. mysql> select * from student;
++--------+--------+--------+------+-----------+---------+
+| reg_no | name   | Gender | dob  | mobile_no | city    |
++--------+--------+--------+------+-----------+---------+
+|    156 | rajesh | M      |   22 |  78787878 | chennai |
++--------+--------+--------+------+-----------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from faculty;
++------------+--------------+--------+----------+------+-----------+--------+------+
+| faculty_no | faculty_name | Gender | DOB      | DOJ  | mobile_no | Deptno | age  |
++------------+--------------+--------+----------+------+-----------+--------+------+
+|        142 | Anu          | F      |       12 |   10 |    153486 | AI     | NULL |
+|        143 | RAM          | M      | 19830501 |   21 |  78787878 | AI     | NULL |
++------------+--------------+--------+----------+------+-----------+--------+------+
+2 rows in set (0.00 sec)
+
