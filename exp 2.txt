@@ -1,0 +1,96 @@
+1.
+
+mysql> ALTER TABLE student
+    -> ADD PRIMARY KEY(reg_no);
+Query OK, 0 rows affected (0.02 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc student;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| reg_no    | int(3)      | NO   | PRI | 0       |       |
+| name      | varchar(15) | YES  |     | NULL    |       |
+| Gender    | varchar(1)  | YES  |     | NULL    |       |
+| dob       | int(8)      | YES  |     | NULL    |       |
+| mobile_no | int(10)     | YES  |     | NULL    |       |
+| city      | varchar(15) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+2.
+mysql> ALTER TABLE faculty
+    -> ADD PRIMARY KEY(faculty_no);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| faculty_no   | int(4)      | NO   | PRI | 0       |       |
+| faculty_name | varchar(15) | YES  |     | NULL    |       |
+| Gender       | varchar(1)  | YES  |     | NULL    |       |
+| DOB          | int(8)      | YES  |     | NULL    |       |
+| DOJ          | int(8)      | YES  |     | NULL    |       |
+| mobile_no    | int(10)     | YES  |     | NULL    |       |
+| Deptno       | varchar(4)  | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+3.
+mysql> ALTER TABLE faculty
+    -> ADD FORIEGN KEY (Deptno) REFERENCE department (Deptno);
+mysql> desc faculty;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| faculty_no   | int(4)      | NO   | PRI | 0       |       |
+| faculty_name | varchar(15) | YES  |     | NULL    |       |
+| Gender       | varchar(1)  | YES  |     | NULL    |       |
+| DOB          | int(8)      | YES  |     | NULL    |       |
+| DOJ          | int(8)      | YES  |     | NULL    |       |
+| mobile_no    | int(10)     | YES  |     | NULL    |       |
+| Deptno       | varchar(4)  | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+4.
+mysql> ALTER TABLE department
+    -> ADD PRIMARY KEY (dept_no);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc department;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| dept_no   | int(4)      | NO   | PRI | 0       |       |
+| dept_name | varchar(15) | YES  |     | NULL    |       |
+| dept_head | varchar(4)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+5.
+mysql> ALTER TABLE course
+    -> ADD PRIMARY KEY (course_no);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE course
+    -> ADD CHECK (sem_no>=1&&sem_no<=6);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc course;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| course_no   | int(4)      | NO   | PRI | 0       |       |
+| course_name | varchar(15) | YES  |     | NULL    |       |
+| course      | varchar(1)  | YES  |     | NULL    |       |
+| sem_no      | int(8)      | YES  |     | NULL    |       |
+| hall_no     | int(8)      | YES  |     | NULL    |       |
+| fac_no      | int(10)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
